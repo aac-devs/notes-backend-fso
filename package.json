@@ -7,15 +7,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
     "build:ui": "rm -rf build && cd ../notes-app && npm run build --prod && cp -r build ../notes-backend/",
     "deploy": "git push heroku main",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
-    "logs:prod": "heroku logs --tail"
+    "logs:prod": "heroku logs --tail",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
+    "lint": "eslint ."
   },
-  "type": "module",
   "author": "Andres Arana Castillo",
   "license": "MIT",
   "dependencies": {
@@ -25,6 +25,13 @@
     "mongoose": "^6.0.9"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "cross-env": "^7.0.3",
+    "eslint": "^8.0.0",
+    "jest": "^27.2.5",
+    "nodemon": "^2.0.13",
+    "supertest": "^6.1.6"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

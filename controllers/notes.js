@@ -1,7 +1,5 @@
-import express from 'express';
-import Note from '../models/note.js';
-
-const notesRouter = express.Router();
+const notesRouter = require('express').Router();
+const Note = require('../models/note');
 
 // GET: READ ALL NOTES
 notesRouter.get('/', (request, response) => {
@@ -44,7 +42,7 @@ notesRouter.post('/', (request, response, next) => {
 // DELETE: REMOVE ONE NOTE
 notesRouter.delete('/:id', (request, response, next) => {
   Note.findByIdAndRemove(request.params.id)
-    .then((result) => {
+    .then(() => {
       response.status(204).end();
     })
     .catch((error) => next(error));
@@ -64,7 +62,7 @@ notesRouter.put('/:id', (request, response, next) => {
     .catch((error) => next(error));
 });
 
-export default notesRouter;
+module.exports = notesRouter;
 
 // app.get('/', (request, response) => {
 //   response.send('<h1>Hello World!</h1>');
