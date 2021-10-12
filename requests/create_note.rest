@@ -2,6 +2,7 @@ POST http://localhost:3001/api/notes
 content-type: application/json
 
 {
-    "content": "MongoDB is awesome!",
-    "important": true
+    "content": "JavaScript is awesome!",
+    "important": true,
+    "userId": "6165a6bab6c54c0f9dcbc81b"
 }
