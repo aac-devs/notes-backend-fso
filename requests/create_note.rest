@@ -1,8 +1,8 @@
 POST http://localhost:3001/api/notes
 content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhYy1kZXZzIiwiaWQiOiI2MTY1YTZiYWI2YzU0YzBmOWRjYmM4MWIiLCJpYXQiOjE2MzQxMzY0NTN9.C2w5y3kHX6kaTPsyzerwju_MrljXt44Xmz0N_0fxKh4
 
 {
-    "content": "JavaScript is awesome!",
-    "important": true,
-    "userId": "6165a6bab6c54c0f9dcbc81b"
+    "content": "JavaScript with token is awesome!",
+    "important": true
 }
